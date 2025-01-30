@@ -13,3 +13,9 @@ body {
   );
   text-align: center;
 }
+
+.main-title{
+  color: rgba(0, 128, 128, 1);
+  font-size: 5rem;
+  padding-block: 2rem;
+}
