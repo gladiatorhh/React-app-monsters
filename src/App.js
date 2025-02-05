@@ -20,13 +20,21 @@ const App = () => {
     const filteredMonstersBySearch = monsters.filter(monster =>
       monster.name.toLowerCase().includes(searchQuery));
 
-    return (
-      <div className="App">
-        <SearchBox placeholder="Please search among the monsters" className="search" onChangeHandler={searchFilter} />
-        <CardList monsters={filteredMonsters} />
-      </div>
-    );
+    setFilteredMonsters(filteredMonstersBySearch)
+  }, [searchQuery, monsters])
+
+
+  const searchFilter = (event) => {
+    const searchQueryValue = event.target.value.trim().toLowerCase();
+    setSearchQuery(searchQueryValue);
   }
+
+  return (
+    <div className="App">
+      <h1 className='main-title'>Monsters rolodex</h1>
+      <SearchBox placeholder="Please search among the monsters" className="search" onChangeHandler={searchFilter} />
+      <CardList monsters={filteredMonsters} />
+    </div>);
 }
 
 export default App;
